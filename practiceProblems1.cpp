@@ -17,7 +17,6 @@ int armstrong(int num){
    }else{
        return 0;
    }
-   return 0;
 }
 int lcm(int num1,int num2){
     /*
