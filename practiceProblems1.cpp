@@ -32,10 +32,8 @@ int lcm(int num1,int num2){
         return num1;
     }else if(num1>num2){
         maxi=num1;
-        mini=num2;
     }else{
         maxi=num2;
-        mini=num1;
     }
     while(true){
         if((maxi%num1==0)&&(maxi%num2==0)){
