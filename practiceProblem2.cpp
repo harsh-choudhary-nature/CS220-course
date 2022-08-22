@@ -10,36 +10,76 @@ class HarshCalculator{
     int num2;
     public:
         HarshCalculator(){
-            cout<<"Enter number 1:";
-            cin>>num1;
-            cout<<"Enter the operation:";
-            cin>>oper;
-            cout<<"Enter number 2:";
-            cin>>num2;
-            if(!cin) {      //!cin checks if no input is accepted by cin then cin equals zer0 so not cin equals 1;
-                cout << "Invalid input\n";
-            }else{
-                displayResult(num1,oper,num2);
+            num1=num2=0;
+            int sign=1;
+            printf("Enter number 1:");
+            char c=getchar();
+            if(c=='-'){
+                sign=-1;
+                c=getchar();
             }
-            
+            if(c=='\n'){
+                printf("\nnum1 can't be empty!");
+                return;
+            }
+            while(c!='\n'){
+                if(((c-'0')>9)||((c-'0')<0)){
+                    printf("\nEnter valid number");
+                    return;
+                }
+                num1=num1*10+(c-'0');
+                c=getchar();
+            }
+            num1=sign*num1;
+            sign=1;
+            //printf("\n%d",num1);
+            printf("\nEnter the character:");
+            char oper=getchar();
+            char check=getchar();
+           // printf("%c",check);
+            if(check!='\n'){
+                printf("\nEnter valid operator");
+                return;
+            }
+            printf("\nEnter number 2:");
+            c=getchar();
+            if(c=='-'){
+                sign=-1;
+                c=getchar();
+            }
+            if(c=='\n'){
+                printf("\nnum2 can't be empty!");
+                return;
+            }
+            while(c!='\n'){
+                if(((c-'0')>9)||((c-'0')<0)){
+                    printf("\nEnter valid number");
+                    return;
+                }
+                num2=num2*10+(c-'0');
+                c=getchar();
+            }
+            num2=sign*num2;
+            //printf("\n%d",num2);
+            displayResult(num1,oper,num2);
         }
         void displayResult(int a, char op, int b){
             if(op=='+'){
-                cout<<"Answer="<<float(a+b)<<endl;
+                printf("\nAnswer=%d",a+b);
             }else if(op=='-'){
-                cout<<"Answer="<<float(a-b)<<endl;
+                printf("\nAnswer=%d",a-b);
             }else if(op=='*'){
-                cout<<"Answer="<<float(a*b)<<endl;
+                printf("\nAnswer=%d",a*b);
             }else if(op=='/'){
                 if(b==0){
                     cout<<"Cant divide by 0"<<endl;
                 }else{
-                    cout<<"Answer="<<float(a)/float(b)<<endl;
+                    printf("\nAnswer=%d",a/b);
                 }
             }else{
-                cout<<"Enter valid operator\n";
+                printf("\nEnter valid operator!");
             }
-            cout<<"Bye"<<endl; 
+            printf("\nBye!"); 
         }
 } ;
 int main(){
