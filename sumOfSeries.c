@@ -1,24 +1,25 @@
 #include<stdio.h>
-int power(int a,int b){
-	int pow=1;
-	for(int i=0;i<b;i++){
-		pow*=a;
-	}
-	return pow;
+int pow(int a,int b){
+    int power=1;
+    for(int i=0;i<b;i++){
+        power*=a;
+    }
+    return power;
 }
 int calcSum(int n){
-	int sum=0;
-	int totalSum=0;
-	while(n>0){
-		sum=sum+power(10,n-1);
-		totalSum+=sum;
-		n--;
-	}
-	return totalSum;
+    int num=0;
+    int temp;
+    for(int i=1;i<=n;i++){      
+        temp=i;
+        while(temp!=0){
+            num=num+pow(10,temp-1);
+            temp--;
+        }
+    }
+    return num;
 }
 int main(){
-	//printf("%d",power(10,1));
-	printf("%d",calcSum(5));
-	return 0;
+    //printf("%d",pow(8,3));
+    printf("%d",calcSum(4));
+    return 0;
 }
-
